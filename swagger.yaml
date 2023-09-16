@@ -1,0 +1,94 @@
+tags:
+  - name: employees
+    description: employees API
+  - name: attendances
+    description: attendances API
+
+paths:
+  # [GET] employees
+  /employees:
+    get:
+      tags:
+        - employees
+      summary: Find All Employees
+      responses:
+        200:
+          description: 'OK'
+        500:
+          description: 'Server Error'
+
+    # [POST] employees
+    post:
+      tags:
+        - employees
+      summary: Add Employee
+      parameters:
+        - name: body
+          in: body
+          description: employee Data
+          required: true
+          schema:
+            $ref: '#/definitions/employees'
+      responses:
+        201:
+          description: 'Created'
+        400:
+          description: 'Bad Request'
+        409:
+          description: 'Conflict'
+        500:
+          description: 'Server Error'
+
+      # [POST] attendances
+      post:
+        tags:
+          - attendances
+        summary: CheckIn Employee
+        parameters:
+          - name: body
+            in: body
+            description: employee Data
+            required: true
+            schema:
+              $ref: '#/definitions/check'
+        responses:
+          201:
+            description: 'Created'
+          400:
+            description: 'Bad Request'
+          500:
+            description: 'Server Error'
+
+# definitions
+definitions:
+  check:
+    type: object
+    required:
+      - employeeId
+    properties:
+      employeeId:
+        type: number
+        description: employee id
+      comment:
+        type: string
+        description: comment of check
+  employees:
+    type: object
+    required:
+      - department
+      - lastName
+      - firstName
+    properties:
+      lastName:
+        type: string
+        description: employee last name
+      firstName:
+        type: string
+        description: employee first name
+      department:
+        type: string
+        description: employee department
+
+schemes:
+  - https
+  - http

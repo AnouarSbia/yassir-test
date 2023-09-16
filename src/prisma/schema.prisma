@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id          Int      @id @default(autoincrement())
+  lastName    String
+  firstName   String
+  department  String
+  dateCreated DateTime  @default(now()) 
+}
+
+model Attedance {
+  id                Int       @id @default(autoincrement())
+  employeeId        Int
+  check_in_date     DateTime  @default(now())
+  check_in_comment  String
+  check_out_date    DateTime?
+  check_out_comment String?
+  attedance_duration    Int?
+}

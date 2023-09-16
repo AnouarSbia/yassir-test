@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Dev yassir-test",
+            "command": "npm run dev"
+        },
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Start yassir-test",
+            "command": "npm run start"
+        },
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Test yassir-test",
+            "command": "npm run test"
+        },
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Lint yassir-test",
+            "command": "npm run lint"
+        },
+        {
+            "type": "node-terminal",
+            "request": "launch",
+            "name": "Lint:Fix yassir-test",
+            "command": "npm run lint:fix"
+        }
+    ]
+}
